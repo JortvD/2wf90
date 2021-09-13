@@ -1,10 +1,12 @@
-add             Add,            Melvin
-mod-add         ModAdd,
-subtract        Subtract,       Melvin
-mod-subtract    ModSubtract,
-multiply        Multiply,       Melvin
-mod-multiply    ModMultiply,
-karatsuba       Karatsuba,
-reduce          Reduce,
-euclid          Euclid,
-inverse         Inverse
+| Algorithm    | Name        |
+|--------------|-------------|
+| add          | Melvin      |
+| mod-add      | Jort        |
+| subtract     | Melvin      |
+| mod-subtract | -           |
+| multiply     | Melvin      |
+| mod-multiply | -           |
+| karatsuba    | Jort        |
+| reduce       | -           |
+| euclid       | -           |
+| inverse      | -           |
