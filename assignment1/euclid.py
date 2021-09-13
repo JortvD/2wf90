@@ -1,0 +1,2 @@
+def euclid():
+    pass

@@ -1,17 +1,6 @@
 import asn1tools as asn
 import json
 
-import add
-import euclid
-import inverse
-import karatsuba
-import mod_add
-import mod_multiply
-import mod_subtract
-import multiply
-import reduce
-import subtract
-
 ### AfS software assignment 1 - example code ###
 
 # set file names
@@ -52,34 +41,30 @@ for exercise in my_exercises['exercises']:
     params = exercise[1]                                           # get parameters
     
     if operation == 'add':
-        params = add.add();
-    
-    if operation == 'mod-add':
-        params = mod_add.modAdd();
+        ### Do addition ###
+        params['answer'] = '7'
     
     if operation == 'subtract':
-        params = subtract.subtract();
-
-    if operation == 'mod-subtract':
-        params = mod_subtract.modSubtract();
+        ### Do subtraction ###
+        params['answer'] = '-0'
 
     if operation == 'multiply':
-        params = multiply.multiply();
-
-    if operation == 'mod-multiply':
-        params = mod_multiply.modMultiply();
+        ### Do multiplication ###
+        params['answer'] = '66'
+        params['count-mul'] = '1'
+        params['count-add'] = '2'
     
-    if operation == 'karatsuba':
-        params = karatsuba.karatsuba();
-    
-    if operation == 'reduce':
-        params = reduce.reduce();
+    if operation == 'mod-add':
+        ### Do modular addition ###
+        params['answer'] = '1234'
     
     if operation == 'euclid':
-        params = euclid.euclid();
+        ### Do euclidean algorithm ###
+        params['answ-d'] = '1'
+        params['answ-a'] = '0'
+        params['answ-b'] = '0'
     
-    if operation == 'inverse':
-        params = inverse.inverse();
+    # etc.
 
     # Save answer
     my_answers['exercises'].append({operation: params})
