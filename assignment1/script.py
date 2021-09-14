@@ -70,7 +70,7 @@ for exercise in my_exercises['exercises']:
         params = mod_multiply.modMultiply();
     
     if operation == 'karatsuba':
-        params = karatsuba.karatsuba();
+        params = karatsuba.karatsuba(params);
     
     if operation == 'reduce':
         params = reduce.reduce();
