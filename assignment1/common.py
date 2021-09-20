@@ -16,3 +16,16 @@ def radixShift(arr, n):
         arr.append(0)
 
     return arr
+
+def smaller(x, y):
+    n = max(len(x), len(y))
+
+    for i in range(n):
+        if(i + len(x) < n):
+            if(y[i] > 0): return True
+            else: pass
+        else:
+            if(x[i] == y[i]): pass
+            else: return x[i] < y[i]
+
+    return False
