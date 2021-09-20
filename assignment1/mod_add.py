@@ -1,7 +1,14 @@
 import common
+from add import add
+from subtract import subtract
 
 def modAdd(x, y, m, b, params):
-    return
+    z = add(x, y)
+
+    if(common.smaller(z, m)):
+        return z
+    else:
+        return subtract(z, m)
 
 def calc(params):
     b = int(params['radix'])
