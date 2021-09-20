@@ -55,7 +55,7 @@ for exercise in my_exercises['exercises']:
         params = add.add();
     
     if operation == 'mod-add':
-        params = mod_add.modAdd();
+        params = mod_add.calc(params);
     
     if operation == 'subtract':
         params = subtract.subtract();

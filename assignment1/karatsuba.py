@@ -3,6 +3,7 @@ from subtract import subtract
 import common
 
 def karatsubaRecursive(x, y, b, params):
+    # If the length of x or y is uneven 
     if(len(x) % 2 == 1): 
         x.insert(0, 0)
     if(len(y) % 2 == 1): 
@@ -12,7 +13,9 @@ def karatsubaRecursive(x, y, b, params):
 
     if(n == 1): 
         params['count_mul'] += 1
-        return [x[0] * y[0]]
+        mult = x[0] * y[0]
+        
+        return [mult//b, mult%b]
 
     xhi = x[1:len(x)//2]
     xlo = x[len(x)//2:]
