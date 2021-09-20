@@ -3,10 +3,10 @@
 | add          | Melvin      |
 | mod-add      | Jort        |
 | subtract     | Melvin      |
-| mod-subtract | -           |
+| mod-subtract | Chiara      |
 | multiply     | Melvin      |
 | mod-multiply | -           |
 | karatsuba    | Jort        |
 | reduce       | -           |
-| euclid       | -           |
+| euclid       | Chiara      |
 | inverse      | -           |
