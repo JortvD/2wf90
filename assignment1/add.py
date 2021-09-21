@@ -1,31 +1,31 @@
 import common
+from subtract import subtract
 
 
 def add(x, y, b, params):
-    carry = 0
-    z = []
-
-    for i in range(len(x), max(len(x), len(y))):
-            x[i] = 0
-
-    for i in range(len(y), max(len(x), len(y))):
-            y[i] = 0
-
-    for i in range(0, max(len(x), len(y))):
-        z.append(x[i] + y[i] + carry)
-        if z[i] >= b:
-            z[i] = z[i] - b
-            carry = 1
-        else:
-            carry = 0
-
-    if carry == 1:
-        k = max(len(x), len(y)) + 1
-        z.append(1)
+    neg, sign = common.negativeInput(x,y)
+    if neg:
+        return subtract(x, y, b, params)
     else:
-        k = max(len(x), len(y))
+        carry = 0
+        z = []
+        z.append(0)
+        for i in range(1, max(len(x), len(y))):
+            z.append(x[i] + y[i] + carry)
+            if z[i-1] >= b:
+                z[i-1] = z[i-1] - b
+                carry = 1
+            else:
+                carry = 0
 
-    return z
+        if carry == 1:
+            k = max(len(x), len(y)) + 1
+            z.append(1)
+        else:
+            k = max(len(x), len(y))
+
+        z[0] = sign
+        return z
 
 
 def calc(params):

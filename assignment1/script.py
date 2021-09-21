@@ -17,20 +17,26 @@ import subtract
 # set file names
 base_location = './'
 ops_loc = base_location + 'operations.asn'
-exs_loc = base_location + 'test_exercises_students_answers'
+exs_loc = base_location + 'my_exercises'
 ans_loc = base_location + 'my_answers'
 
 # ###### Creating an exercise list file ######
 #
-# # How to create an exercise JSON file containing one addition exercise
-# exercises = {'exercises' : []}                                     # initialize empty exercise list
-# ex = {"add": {"radix": 16, "x": "82a4d3f8bfab54bb3011", "y": "cb95aa820d14888e48c3", "answer": ""}} # create add exercise
-# exercises['exercises'].append(ex)                                  # add exercise to list
-#
-# # Encode exercise list and print to file
-# my_file = open(exs_loc, 'wb+')                                     # write to binary file
-# my_file.write(json.dumps(exercises).encode())                      # add encoded exercise list
-# my_file.close()
+# How to create an exercise JSON file containing one addition exercise
+exercises = {'exercises' : []}                                     # initialize empty exercise list
+ex = {"add": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exercise
+ex1 = {"add": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
+ex2 = {"add": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
+ex3 = {"add": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
+exercises['exercises'].append(ex)                                  # add exercise to list
+exercises['exercises'].append(ex1)
+exercises['exercises'].append(ex2)
+exercises['exercises'].append(ex3)
+
+# Encode exercise list and print to file
+my_file = open(exs_loc, 'wb+')                                     # write to binary file
+my_file.write(json.dumps(exercises).encode())                      # add encoded exercise list
+my_file.close()
 
 ###### Using an exercise list file ######
 
@@ -83,7 +89,7 @@ for exercise in my_exercises['exercises']:
 
     # Save answer
     print(params['answer'] + "=" + calc_params['answer'] + "?" + str(calc_params['answer'] is params['answer']))
-    my_answers['exercises'].append({operation: params})
+    my_answers['exercises'].append({operation: calc_params})
 
 ###### Creating an answers list file ######
 
