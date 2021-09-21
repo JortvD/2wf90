@@ -14,7 +14,7 @@ def subtract(x, y, b):
     elif is_negative(y):
         # x - -y = x + y
         # TODO call add function
-        return add(x,y,b)
+        return add.add(x,y,b)
     elif is_negative(x):
         # -x - y => -(x - y)
         flip_carry = not flip_carry

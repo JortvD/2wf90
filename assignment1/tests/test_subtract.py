@@ -15,7 +15,16 @@ class TestSubtract(unittest.TestCase):
         print(res)
 
         x = common.split('-1337', 10)
+        res = subtract.subtract(x, y, 10)
+        print(res)
+
+        x = common.split('-1337', 10)
         y = common.split('-1338', 10)
+        res = subtract.subtract(x, y, 10)
+        print(res)
+
+        x = common.split('1', 10)
+        y = common.split('-1', 10)
         res = subtract.subtract(x, y, 10)
         print(res)
 
