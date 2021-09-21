@@ -50,3 +50,8 @@ def negativeInput(x, y):
     elif x[0] == 1 and y[0] == 1:
         sign = 1
     return res, sign
+
+def swap(x, y):
+    temp = x
+    x = y
+    y = temp
