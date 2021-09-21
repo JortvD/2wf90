@@ -16,7 +16,7 @@ def baseToString(n):
 def concat(arr):
     return ''.join([baseToString(i) for i in arr])
 
-def num_bits(x):
+def num_digits(x):
     return len(x) -  1
 
 # Shifts the array arr by adding n zeros at the end of the arr.
@@ -26,15 +26,17 @@ def radixShift(arr, n):
 
     return arr
 
+def is_negative(x):
+    return x[0] == 1
+
 def smaller(x, y):
-    n = max(len(x), len(y))
+    if is_negative(x) and not is_negative(y):
+        return True
 
-    for i in range(n):
-        if(i + len(x) < n):
-            if(y[i] > 0): return True
-            else: pass
-        else:
-            if(x[i] == y[i]): pass
-            else: return x[i] < y[i]
+    if len(x) != len(y):
+        return len(x) < len(y)
 
+    for i in range(len(x)):
+        if x[i] < y[i]:
+            return True
     return False
