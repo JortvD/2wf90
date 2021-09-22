@@ -1,29 +1,33 @@
 import common
 
 def add(x, y, b, params):
-    if common.isNegative(x) and common.isNegative(y):
-        x[0] = 0
-        y[0] = 0
-        res = add(x, y, b, params)
+    if common.isPositive(x) and common.isPositive(y):
+        return addfn(x, y, b)
+    elif not common.isPositive(x) and not common.isPositive(y):
+        res = addfn(x, y, b)
         res[0] = 1
         return res
-    elif common.isNegative(x):
-        x[0] = 0
-        res = subtract(y, x, b, params)
-        return res
-    elif common.isNegative(y):
-        y[0] = 0
+    elif common.isPositive(x) and not common.isPositive(y):
+        return subtract(x, y, b, params)
+    elif not common.isPositive(x) and common.isPositive(y):
         res = subtract(x, y, b, params)
+        res[0] = 1
+        return res
+    else:
+        res = addfn(x, y, b)
+        res[0] = 1
         return res
 
+
+def addfn(x, y, b):
     # Assumption that x and y > 0
     carry = 0
     z = []
     z.append(0)
     for i in range(1, max(len(x), len(y))):
         z.append(x[i] + y[i] + carry)
-        if z[i-1] >= b:
-            z[i-1] = z[i-1] - b
+        if z[i - 1] >= b:
+            z[i - 1] = z[i - 1] - b
             carry = 1
         else:
             carry = 0

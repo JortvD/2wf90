@@ -29,6 +29,9 @@ def radixShift(arr, n):
 def is_negative(x):
     return x[0] == 1
 
+def isPositive(arr):
+    return arr[0] == 0
+
 def smaller(x, y):
     if is_negative(x) and not is_negative(y):
         return True
