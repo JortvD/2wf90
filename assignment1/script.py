@@ -24,24 +24,24 @@ ans_loc = base_location + 'my_answers'
 #
 # How to create an exercise JSON file containing one addition exercise
 exercises = {'exercises' : []}                                     # initialize empty exercise list
-ex = {"add": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exercise
-ex1 = {"add": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
-ex2 = {"add": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
-ex3 = {"add": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
-
-ex4 = {"subtract": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exercise
-ex5 = {"subtract": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
-ex6 = {"subtract": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
-ex7 = {"subtract": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
+ex = {"multiply": {"radix": 10, "x": "12", "y": "12", "answer": ""}} # create add exercise
+# ex1 = {"add": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
+# ex2 = {"add": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
+# ex3 = {"add": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
+#
+# ex4 = {"subtract": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exercise
+# ex5 = {"subtract": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
+# ex6 = {"subtract": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
+# ex7 = {"subtract": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
 exercises['exercises'].append(ex)                                  # add exercise to list
-exercises['exercises'].append(ex1)
-exercises['exercises'].append(ex2)
-exercises['exercises'].append(ex3)
-
-exercises['exercises'].append(ex4)                                  # add exercise to list
-exercises['exercises'].append(ex5)
-exercises['exercises'].append(ex6)
-exercises['exercises'].append(ex7)
+# exercises['exercises'].append(ex1)
+# exercises['exercises'].append(ex2)
+# exercises['exercises'].append(ex3)
+#
+# exercises['exercises'].append(ex4)                                  # add exercise to list
+# exercises['exercises'].append(ex5)
+# exercises['exercises'].append(ex6)
+# exercises['exercises'].append(ex7)
 
 # Encode exercise list and print to file
 my_file = open(exs_loc, 'wb+')                                     # write to binary file
@@ -79,9 +79,9 @@ for exercise in my_exercises['exercises']:
     # if operation == 'mod-subtract':
     #     params = mod_subtract.modSubtract();
     #
-    # if operation == 'multiply':
-    #     params = multiply.multiply();
-    #
+    if operation == 'multiply':
+        calc_params = multiply.calc(params)
+
     # if operation == 'mod-multiply':
     #     params = mod_multiply.modMultiply();
     #
