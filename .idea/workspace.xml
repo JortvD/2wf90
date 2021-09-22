@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assignment1/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1/subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/subtract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/add.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/add_sub.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/karatsuba.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/karatsuba.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/mod_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/mod_add.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/subtract.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,5 +133,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

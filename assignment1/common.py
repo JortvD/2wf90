@@ -41,17 +41,6 @@ def smaller(x, y):
             return True
     return False
 
-
-def negativeInput(x, y):
-    res = False
-    sign = 0
-    if x[0] == 1 or y[0] == 1:
-        res = True
-    elif x[0] == 1 and y[0] == 1:
-        sign = 1
-    return res, sign
-
-def swap(x, y):
-    temp = x
-    x = y
-    y = temp
+def makeNegative(arr):
+    arr[0] = 1
+    return arr

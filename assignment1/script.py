@@ -1,7 +1,7 @@
 import asn1tools as asn
 import json
 
-import add
+import add_sub
 import euclid
 import inverse
 import karatsuba
@@ -10,7 +10,7 @@ import mod_multiply
 import mod_subtract
 import multiply
 import reduce
-import subtract
+# import subtract
 
 ### AfS software assignment 1 - example code ###
 
@@ -28,10 +28,20 @@ ex = {"add": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exe
 ex1 = {"add": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
 ex2 = {"add": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
 ex3 = {"add": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
+
+ex4 = {"subtract": {"radix": 10, "x": "40", "y": "20", "answer": ""}} # create add exercise
+ex5 = {"subtract": {"radix": 10, "x": "-40", "y": "20", "answer": ""}} # create add exercise
+ex6 = {"subtract": {"radix": 10, "x": "40", "y": "-20", "answer": ""}} # create add exercise
+ex7 = {"subtract": {"radix": 10, "x": "-40", "y": "-20", "answer": ""}} # create add exercise
 exercises['exercises'].append(ex)                                  # add exercise to list
 exercises['exercises'].append(ex1)
 exercises['exercises'].append(ex2)
 exercises['exercises'].append(ex3)
+
+exercises['exercises'].append(ex4)                                  # add exercise to list
+exercises['exercises'].append(ex5)
+exercises['exercises'].append(ex6)
+exercises['exercises'].append(ex7)
 
 # Encode exercise list and print to file
 my_file = open(exs_loc, 'wb+')                                     # write to binary file
@@ -58,13 +68,13 @@ for exercise in my_exercises['exercises']:
     params = exercise[1]  # get parameters
 
     if operation == 'add':
-        calc_params = add.calc(params)
+        calc_params = add_sub.calc(operation, params)
 
     # if operation == 'mod-add':
     #     params = mod_add.calc(params);
     #
-    # if operation == 'subtract':
-    #     params = subtract.subtract();
+    if operation == 'subtract':
+        calc_params = add_sub.calc(operation, params);
     #
     # if operation == 'mod-subtract':
     #     params = mod_subtract.modSubtract();
@@ -88,7 +98,7 @@ for exercise in my_exercises['exercises']:
     #     params = inverse.inverse();
 
     # Save answer
-    print(params['answer'] + "=" + calc_params['answer'] + "?" + str(calc_params['answer'] is params['answer']))
+    print(operation+":"+params['answer'] + "=" + calc_params['answer'] + "?" + str(calc_params['answer'] is params['answer']))
     my_answers['exercises'].append({operation: calc_params})
 
 ###### Creating an answers list file ######

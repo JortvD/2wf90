@@ -1,5 +1,40 @@
-import add
 import common
+
+def add(x, y, b, params):
+    if common.isNegative(x) and common.isNegative(y):
+        x[0] = 0
+        y[0] = 0
+        res = add(x, y, b, params)
+        res[0] = 1
+        return res
+    elif common.isNegative(x):
+        x[0] = 0
+        res = subtract(y, x, b, params)
+        return res
+    elif common.isNegative(y):
+        y[0] = 0
+        res = subtract(x, y, b, params)
+        return res
+
+    # Assumption that x and y > 0
+    carry = 0
+    z = []
+    z.append(0)
+    for i in range(1, max(len(x), len(y))):
+        z.append(x[i] + y[i] + carry)
+        if z[i-1] >= b:
+            z[i-1] = z[i-1] - b
+            carry = 1
+        else:
+            carry = 0
+
+    if carry == 1:
+        k = max(len(x), len(y)) + 1
+        z.append(1)
+    else:
+        k = max(len(x), len(y))
+
+    return z
 
 def subtract(x, y, b):
     carry = 0
@@ -47,7 +82,7 @@ def subtract(x, y, b):
     res = [carry] + z[::-1]
     return res
 
-def calc(params):
+def calc(operation, params):
     # Parses the base b from the params
     b = int(params['radix'])
     # Parses the x value from the params
@@ -56,6 +91,9 @@ def calc(params):
     y = common.split(params['y'], b)
 
     # Calculates and parses the answer
-    params['answer'] = common.concat(subtract(x, y, b))
+    if operation == 'add':
+        params['answer'] = common.concat(add(x, y, b, params))
+    if operation == 'subtract':
+        params['answer'] = common.concat(subtract(x, y, b, params))
 
     return params
