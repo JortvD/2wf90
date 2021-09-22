@@ -1,3 +1,5 @@
+import copy
+
 # Splits the string str into a list of integers with base b.
 def split(i_str, b):
     if b > 16:
@@ -44,6 +46,12 @@ def smaller(x, y):
             return True
     return False
 
-def makeNegative(arr):
-    arr[0] = 1
-    return arr
+def make_negative(arr):
+    neg_arr = copy.copy(arr)
+    neg_arr[0] = 1
+    return neg_arr
+
+def make_positive(arr):
+    pos_arr = copy.copy(arr)
+    pos_arr[0] = 0
+    return pos_arr

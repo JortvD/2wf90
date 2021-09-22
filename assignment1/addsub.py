@@ -1,43 +1,41 @@
 import common
 
-def add(x, y, b, params):
-    if common.isPositive(x) and common.isPositive(y):
-        return addfn(x, y, b)
-    elif not common.isPositive(x) and not common.isPositive(y):
-        res = addfn(x, y, b)
-        res[0] = 1
+def add(x, y, b):
+    flip_sign = 0
+    if common.is_negative(x) and common.is_negative(y):
+        flip_sign = 1
+    elif common.is_negative(y):
+        y_pos = common.make_positive(y)
+        res = subtract(x, y_pos, b)
         return res
-    elif common.isPositive(x) and not common.isPositive(y):
-        return subtract(x, y, b, params)
-    elif not common.isPositive(x) and common.isPositive(y):
-        res = subtract(x, y, b, params)
-        res[0] = 1
-        return res
-    else:
-        res = addfn(x, y, b)
+    elif common.is_negative(x):
+        res = subtract(x, y, b)
         res[0] = 1
         return res
 
-
-def addfn(x, y, b):
     # Assumption that x and y > 0
     carry = 0
     z = []
     z.append(0)
-    for i in range(1, max(len(x), len(y))):
-        z.append(x[i] + y[i] + carry)
-        if z[i - 1] >= b:
-            z[i - 1] = z[i - 1] - b
+    m = common.num_digits(x)
+    n = common.num_digits(y)
+    print(x,y)
+    x_i = [0 for i in range(max(n-m, 0))] + x[1:]
+    y_i = [0 for i in range(max(m-n, 0))] + y[1:]
+    print(x_i, y_i)
+    for i in range(0, max(len(x_i), len(y_i))):
+        z_i = x_i[i] + y_i[i] + carry
+        if z_i >= b:
+            z_i = z_i - b
             carry = 1
         else:
             carry = 0
+        z.append(z_i)
 
     if carry == 1:
-        k = max(len(x), len(y)) + 1
         z.append(1)
-    else:
-        k = max(len(x), len(y))
 
+    z[0] ^= flip_sign
     return z
 
 def subtract(x, y, b):
@@ -53,7 +51,7 @@ def subtract(x, y, b):
     elif common.is_negative(y):
         # x - -y = x + y
         # TODO call add function
-        return add.add(x,y,b)
+        return add(x,y,b)
     elif common.is_negative(x):
         # -x - y => -(x - y)
         flip_carry = not flip_carry
@@ -96,8 +94,8 @@ def calc(operation, params):
 
     # Calculates and parses the answer
     if operation == 'add':
-        params['answer'] = common.concat(add(x, y, b, params))
+        params['answer'] = common.concat(add(x, y, b))
     if operation == 'subtract':
-        params['answer'] = common.concat(subtract(x, y, b, params))
+        params['answer'] = common.concat(subtract(x, y, b))
 
     return params

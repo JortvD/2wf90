@@ -1,7 +1,7 @@
 import asn1tools as asn
 import json
 
-import add_sub
+import addsub
 import euclid
 import inverse
 import karatsuba
@@ -68,13 +68,13 @@ for exercise in my_exercises['exercises']:
     params = exercise[1]  # get parameters
 
     if operation == 'add':
-        calc_params = add_sub.calc(operation, params)
+        calc_params = addsub.calc(operation, params)
 
     # if operation == 'mod-add':
     #     params = mod_add.calc(params);
     #
     if operation == 'subtract':
-        calc_params = add_sub.calc(operation, params);
+        calc_params = addsub.calc(operation, params);
     #
     # if operation == 'mod-subtract':
     #     params = mod_subtract.modSubtract();
