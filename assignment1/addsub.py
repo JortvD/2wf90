@@ -84,4 +84,5 @@ def subtract(x, y):
     if carry == 1:
         z.make_negative()
     z.invert_digits()
+    z.strip_leading_zeroes()
     return z

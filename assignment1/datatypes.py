@@ -14,6 +14,7 @@ class LargeInteger(object):
             self._val = [0]
         else:
             self._val = LargeInteger.from_str(val, radix)
+            self.strip_leading_zeroes()
 
     def __getitem__(self, i):
         # To abstract away the sign bit
@@ -76,6 +77,15 @@ class LargeInteger(object):
 
     def prepend_zeroes(self, amount):
         self._val = [self._val[0]] + [0 for i in range(amount)] + self._val[1:]
+
+    def strip_leading_zeroes(self):
+        strip_amount = 0
+        for i in range(1, len(self._val)):
+            if self._val[i] != 0:
+                break
+            strip_amount += 1
+
+        self._val = [self._val[0]] + self._val[1+ strip_amount:]
 
     def flip_sign(self):
         self._val[0] ^= 1

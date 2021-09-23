@@ -29,5 +29,11 @@ class TestSubtract(unittest.TestCase):
         res = x - y
         self.assertEqual(str(res), '4')
 
+        x = datatypes.LargeInteger('11', 10)
+        # Test leading zeroes
+        y = datatypes.LargeInteger('06', 10)
+        res = x - y
+        self.assertEqual(str(res), '5')
+
 if __name__ == '__main__':
     unittest.main()
