@@ -58,12 +58,28 @@ class LargeInteger(object):
         if self.is_negative and not y.is_negative:
             return True
 
-        if self.num_digits != y.num_digits:
-            return self.num_digits < y.num_digits
+        # This optimization does not work, since we have leading zeroes
+        # if self.num_digits != y.num_digits:
+        #     return self.num_digits < y.num_digits
+        x_start = 0
+        for i in range(1, len(self._val) - 1):
+            if self._val[i] != 0:
+                break
+            x_start += 1
+        y_start = 0
+        for i in range(0, y.num_digits - 1):
+            if y[i] != 0:
+                break
+            y_start += 1
+        
+        x_left = self.num_digits - x_start
+        y_left = y.num_digits - y_start
+        if x_left != y_left:
+             return x_left < y_left
 
-        for i in range(0, self.num_digits):
-            if self._val[i+1] != y[i]:
-                return self._val[i+1] < y[i]
+        for i in range(0, x_left):
+            if self._val[x_start + i +1] != y[y_start + i]:
+                return self._val[x_start + i +1] < y[y_start + i]
         return False
 
     def make_negative(self):
