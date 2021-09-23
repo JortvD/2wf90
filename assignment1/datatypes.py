@@ -62,8 +62,8 @@ class LargeInteger(object):
             return self.num_digits < y.num_digits
 
         for i in range(0, self.num_digits):
-            if self._val[i+1] < y[i]:
-                return True
+            if self._val[i+1] != y[i]:
+                return self._val[i+1] < y[i]
         return False
 
     def make_negative(self):

@@ -32,6 +32,7 @@ class TestSubtract(unittest.TestCase):
         x = datatypes.LargeInteger('11', 10)
         # Test leading zeroes
         y = datatypes.LargeInteger('06', 10)
+        y.prepend_zeroes(1)
         res = x - y
         self.assertEqual(str(res), '5')
 
