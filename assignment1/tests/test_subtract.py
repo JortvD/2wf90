@@ -1,31 +1,33 @@
 import unittest
-import addsub
-import common
+import datatypes
 
 class TestSubtract(unittest.TestCase):
 
     def test_subtract(self):
-        x = common.split('1337', 10)
-        y = common.split('1', 10)
-        res = addsub.subtract(x, y, 10)
+        x = datatypes.LargeInteger('1337', 10)
+        y = datatypes.LargeInteger('1', 10)
+        res = x - y
+        self.assertEqual(str(res), '1336')
 
-        y = common.split('1338', 10)
-        res = addsub.subtract(x, y, 10)
-        print(res)
+        x = datatypes.LargeInteger('1337', 10)
+        y = datatypes.LargeInteger('1338', 10)
+        res = x - y
+        self.assertEqual(str(res), '-1')
 
-        x = common.split('-1337', 10)
-        res = addsub.subtract(x, y, 10)
-        print(res)
+        x = datatypes.LargeInteger('-1337', 10)
+        y = datatypes.LargeInteger('1338', 10)
+        res = x - y
+        self.assertEqual(str(res), '-2675')
 
-        x = common.split('-1337', 10)
-        y = common.split('-1338', 10)
-        res = addsub.subtract(x, y, 10)
-        print(res)
+        x = datatypes.LargeInteger('-1337', 10)
+        y = datatypes.LargeInteger('-1338', 10)
+        res = x - y
+        self.assertEqual(str(res), '1')
 
-        x = common.split('1', 10)
-        y = common.split('-1', 10)
-        res = addsub.subtract(x, y, 10)
-        print(res)
+        x = datatypes.LargeInteger('1', 10)
+        y = datatypes.LargeInteger('-1', 10)
+        res = x - y
+        self.assertEqual(str(res), '2')
 
 if __name__ == '__main__':
     unittest.main()

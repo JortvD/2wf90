@@ -1,32 +1,30 @@
 import common
+import datatypes
 
-def add(x, y, b):
-    flip_sign = 0
-    if common.is_negative(x) and common.is_negative(y):
-        flip_sign = 1
-    elif common.is_negative(y):
-        y_pos = common.make_positive(y)
-        res = subtract(x, y_pos, b)
+def add(x, y):
+    make_negative = False
+    if x.is_negative and y.is_negative:
+        make_negative = True
+    elif y.is_negative:
+        y.make_positive()
+        res = subtract(x, y)
         return res
-    elif common.is_negative(x):
-        res = subtract(x, y, b)
-        res[0] = 1
+    elif x.is_negative:
+        res = subtract(x, y)
+        res.make_negative()
         return res
 
     # Assumption that x and y > 0
     carry = 0
-    z = []
-    z.append(0)
-    m = common.num_digits(x)
-    n = common.num_digits(y)
-    print(x,y)
-    x_i = [0 for i in range(max(n-m, 0))] + x[1:]
-    y_i = [0 for i in range(max(m-n, 0))] + y[1:]
-    print(x_i, y_i)
-    for i in range(0, max(len(x_i), len(y_i))):
-        z_i = x_i[i] + y_i[i] + carry
-        if z_i >= b:
-            z_i = z_i - b
+    z = datatypes.LargeInteger(None, radix=x.radix)
+    m = x.num_digits
+    n = y.num_digits
+    x.prepend_zeroes(max(n-m, 0))
+    y.prepend_zeroes(max(m-n, 0))
+    for i in range(0, max(m, n)):
+        z_i = x[i] + y[i] + carry
+        if z_i >= x.radix:
+            z_i -= x.radix
             carry = 1
         else:
             carry = 0
@@ -35,28 +33,32 @@ def add(x, y, b):
     if carry == 1:
         z.append(1)
 
-    z[0] ^= flip_sign
+    if make_negative:
+        z.make_negative()
     return z
 
-def subtract(x, y, b):
+def subtract(x, y):
     carry = 0
     flip_carry = False
 
-    if common.is_negative(x) and common.is_negative(y):
+    if x.is_negative and y.is_negative:
         # both negative
         # -x - -y => -x + y => y - x
         old_x = x
         x = y
         y = old_x
-    elif common.is_negative(y):
+    elif y.is_negative:
         # x - -y = x + y
-        # TODO call add function
-        return add(x,y,b)
-    elif common.is_negative(x):
-        # -x - y => -(x - y)
-        flip_carry = not flip_carry
+        return add(x, y)
+    elif x.is_negative:
+        x.make_positive()
+        res = add(x,y)
+        res.make_negative()
+        # add(x, y), flip carry
+        return res
+        #flip_carry = not flip_carry
 
-    if common.smaller(x,y):
+    if x < y:
         old_x = x
         x = y
         y = old_x
@@ -65,15 +67,14 @@ def subtract(x, y, b):
 
     # x is negative, y is negative or both
 
-    m = common.num_digits(x)
-    n = common.num_digits(y)
-    y_i = [0 for i in range(m - n)] + y
-    # TODO adjust sign
-    z = list()
-    for i in range(m, 0, -1):
-        z_i = x[i] - y_i[i] - carry
+    m = x.num_digits
+    n = y.num_digits
+    y.prepend_zeroes(m - n)
+    z = datatypes.LargeInteger(None, radix=x.radix)
+    for i in range(m-1, -1, -1):
+        z_i = x[i] - y[i] - carry
         if z_i < 0:
-            z_i += b
+            z_i += x.radix
             carry = 1
         else:
             carry = 0
@@ -81,21 +82,8 @@ def subtract(x, y, b):
 
     if flip_carry:
         carry ^= 1
-    res = [carry] + z[::-1]
-    return res
-
-def calc(operation, params):
-    # Parses the base b from the params
-    b = int(params['radix'])
-    # Parses the x value from the params
-    x = common.split(params['x'], b)
-    # Parses the y value from the params
-    y = common.split(params['y'], b)
-
-    # Calculates and parses the answer
-    if operation == 'add':
-        params['answer'] = common.concat(add(x, y, b))
-    if operation == 'subtract':
-        params['answer'] = common.concat(subtract(x, y, b))
-
-    return params
+    
+    if carry == 1:
+        z.make_negative()
+    z.invert_digits()
+    return z
