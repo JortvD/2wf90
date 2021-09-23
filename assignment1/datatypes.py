@@ -44,8 +44,13 @@ class LargeInteger(object):
             x_i = self._val[i]
             if not found_digits:
                 found_digits = (x_i != 0)
+
             if found_digits:
                 s += LOOKUP_TABLE[x_i]
+
+        if not found_digits:
+            s = '0'
+
         return s
 
     def __lt__(self, y):

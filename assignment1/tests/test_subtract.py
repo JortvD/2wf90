@@ -25,9 +25,9 @@ class TestSubtract(unittest.TestCase):
         self.assertEqual(str(res), '1')
 
         x = datatypes.LargeInteger('1', 10)
-        y = datatypes.LargeInteger('-1', 10)
+        y = datatypes.LargeInteger('-3', 10)
         res = x - y
-        self.assertEqual(str(res), '2')
+        self.assertEqual(str(res), '4')
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,3 @@
-import common
 import datatypes
 
 def add(x, y):
@@ -7,10 +6,10 @@ def add(x, y):
         make_negative = True
     elif y.is_negative:
         y.make_positive()
-        res = subtract(x, y)
+        res = x - y
         return res
     elif x.is_negative:
-        res = subtract(x, y)
+        res = x - y
         res.make_negative()
         return res
 
@@ -21,7 +20,7 @@ def add(x, y):
     n = y.num_digits
     x.prepend_zeroes(max(n-m, 0))
     y.prepend_zeroes(max(m-n, 0))
-    for i in range(0, max(m, n)):
+    for i in range(max(m, n) - 1, -1, -1):
         z_i = x[i] + y[i] + carry
         if z_i >= x.radix:
             z_i -= x.radix
@@ -35,6 +34,8 @@ def add(x, y):
 
     if make_negative:
         z.make_negative()
+
+    z.invert_digits()
     return z
 
 def subtract(x, y):
@@ -49,23 +50,20 @@ def subtract(x, y):
         y = old_x
     elif y.is_negative:
         # x - -y = x + y
-        return add(x, y)
+        y.make_positive()
+        return x + y
     elif x.is_negative:
-        x.make_positive()
-        res = add(x,y)
-        res.make_negative()
         # add(x, y), flip carry
+        x.make_positive()
+        res = x + y
+        res.make_negative()
         return res
-        #flip_carry = not flip_carry
 
     if x < y:
         old_x = x
         x = y
         y = old_x
         flip_carry = not flip_carry
-    # negative numbers
-
-    # x is negative, y is negative or both
 
     m = x.num_digits
     n = y.num_digits
