@@ -1,21 +1,22 @@
-import common
-from addsub import add, subtract
-# from subtract import subtract
+from datatypes import LargeInteger
+from reduce import reduce
 
-def modAdd(x, y, m, b, params):
-    z = add(x, y)
+def mod_add(x, y, m, b, params):
+    x = reduce(x, m)
+    y = reduce(y, m)
+    z = x + y
 
-    if(common.smaller(z, m)):
+    if(z < m):
         return z
     else:
-        return subtract(z, m)
+        return z - m
 
 def calc(params):
     b = int(params['radix'])
-    x = common.split(params['x'], b)
-    y = common.split(params['y'], b)
-    m = common.split(params['m'], b)
+    x = LargeInteger(params['x'], b)
+    y = LargeInteger(params['y'], b)
+    m = LargeInteger(params['m'], b)
 
-    params['answer'] = common.concat(modAdd(x, y, m, b, params))
+    params['answer'] = str(mod_add(x, y, m, b, params))
     
     return params

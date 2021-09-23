@@ -1,10 +1,12 @@
+import copy
 from addsub import add, subtract
-# from subtract import subtract
-import common
+from datatypes import LargeInteger
 
-def karatsubaRecursive(x, y, b, params):
+def karatsuba_recursive(x, y, b, params):
     # If either x or y are 0 then return 0.
-    if(len(x) == 0 | len(y) == 0): return [0]
+    if((len(x) == 0) | (len(y) == 0)): return LargeInteger('0', b)
+
+    negative = (bool(x.is_positive) ^ bool(y.is_positive))
 
     # If x and y are 1 then
     if(len(x) == 1 & len(y) == 1):
@@ -14,7 +16,9 @@ def karatsubaRecursive(x, y, b, params):
         mult = x[0] * y[0]
         
         # Return an array of the two digits of the multiplication, both mod b
-        return [mult//b, mult%b]
+        xy = LargeInteger([1 if negative else 0, int(mult//b), int(mult%b)], b)
+        xy.strip_leading_zeroes()
+        return xy
     
     # If the length of x is uneven 
     if(len(x) % 2 == 1): 
@@ -26,27 +30,33 @@ def karatsubaRecursive(x, y, b, params):
 
     # Here we take that n is the largest length of either x and y
     n = max(len(x), len(y))
+    x = LargeInteger([0] + [0] * (n - len(x)) + x.slice(0, len(x)), b)
+    y = LargeInteger([0] + [0] * (n - len(y)) + y.slice(0, len(y)), b)
 
     # The high part of x
-    xhi = x[0:(len(x)-1)//2]
+    xhi = LargeInteger([0] + x.slice(0, len(x)//2), b)
     # The low part of x
-    xlo = x[(len(x)-1)//2:]
+    xlo = LargeInteger([0] + x.slice(len(x)//2, len(x)), b)
     # The high part of y
-    yhi = y[0:(len(y)-1)//2]
+    yhi = LargeInteger([0] + y.slice(0, len(y)//2), b)
     # The low part of y
-    ylo = y[(len(y)-1)//2:]
+    ylo = LargeInteger([0] + y.slice(len(y)//2, len(y)), b)
 
     # The high part of the karatsuba multiplication
-    xhiyhi = karatsubaRecursive(xhi, yhi, b, params)
+    xhiyhi = karatsuba_recursive(xhi, yhi, b, params)
     # The low part of the karatsuba multiplcation
-    xloylo = karatsubaRecursive(xlo, ylo, b, params)
+    xloylo = karatsuba_recursive(xlo, ylo, b, params)
     # The mid part of the mid part of the karatsuba multiplication
-    mid = karatsubaRecursive(add(xhi, xlo, params), add(yhi, ylo, params), b, params)
+    mid = karatsuba_recursive(xhi + xlo, yhi + ylo, b, params)
     # The full mid part of the karatsuba multiplication
-    xymid = subtract(subtract(mid, xhiyhi, params), xloylo, params)
+    xymid = mid - xhiyhi - xloylo
+    xymid.strip_leading_zeroes()
 
     # The summation part of the karatsuba algorithm
-    xy = add(add(common.radixShift(xhiyhi, n), common.radixShift(xymid, n/2)), xloylo)
+    xy = xhiyhi.lshift(n) + xymid.lshift(n//2) + xloylo
+    xy.strip_leading_zeroes()
+
+    if negative: xy.make_negative()
 
     return xy
 
@@ -55,15 +65,16 @@ def calc(params):
     # Parses the base b from the params
     b = int(params['radix'])
     # Parses the x value from the params
-    x = common.split(params['x'], b)
+    x = LargeInteger(params['x'], b)
     # Parses the y value from the params
-    y = common.split(params['y'], b)
+    y = LargeInteger(params['y'], b)
 
     # Resets the multiplication counter
     params['count_mul'] = 0
     # Resets the addition counter
     params['count_add'] = 0
     # Calculates and parses the answer
-    params['answer'] = common.concat(karatsubaRecursive(x, y, b, params))
+    answer = karatsuba_recursive(x, y, b, params)
+    params['answer'] = str(answer)
 
     return params

@@ -12,6 +12,8 @@ class LargeInteger(object):
 
         if val is None:
             self._val = [0]
+        elif isinstance(val, list):
+            self._val = val
         else:
             self._val = LargeInteger.from_str(val, radix)
             self.strip_leading_zeroes()
@@ -29,7 +31,7 @@ class LargeInteger(object):
     def __mul__(self, y):
         return multiply.multiply(self, y)
 
-    def __lshift(self, y):
+    def __lshift__(self, y):
         self._val.extend([0 * y])
         return self
 
@@ -42,7 +44,7 @@ class LargeInteger(object):
 
         found_digits = False
         for i in range(1, len(self._val)):
-            x_i = self._val[i]
+            x_i = int(self._val[i])
             if not found_digits:
                 found_digits = (x_i != 0)
 
@@ -65,6 +67,9 @@ class LargeInteger(object):
             if self._val[i+1] != y[i]:
                 return self._val[i+1] < y[i]
         return False
+
+    def __len__(self):
+        return self.num_digits
 
     def make_negative(self):
         self._val[0] = 1
@@ -91,11 +96,21 @@ class LargeInteger(object):
     def flip_sign(self):
         self._val[0] ^= 1
 
+    def slice(self, i, j):
+        return self._val[i+1:j+1]
+
+    def lshift(self, y):
+        self._val.extend([0] * y)
+        return self
+
     def append(self, digit):
         """
         @summary Appends a digits to the integer
         """
         self._val.append(digit)
+
+    def insert(self, i, v):
+        self._val.insert(i + 1, v)
 
     @property
     def num_digits(self):
