@@ -80,7 +80,8 @@ class LargeInteger(object):
 
     def strip_leading_zeroes(self):
         strip_amount = 0
-        for i in range(1, len(self._val)):
+        # Always maintain one digit for the zero itself
+        for i in range(1, len(self._val) - 1):
             if self._val[i] != 0:
                 break
             strip_amount += 1
