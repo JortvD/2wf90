@@ -44,7 +44,7 @@ class LargeInteger(object):
 
         found_digits = False
         for i in range(1, len(self._val)):
-            x_i = int(self._val[i])
+            x_i = self._val[i]
             if not found_digits:
                 found_digits = (x_i != 0)
 
