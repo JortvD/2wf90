@@ -39,6 +39,10 @@ class LargeInteger(object):
         self._val.extend([0 * y])
         return self
 
+    def __abs__(self):
+        self._val[0] = 0
+        return self
+
     def __str__(self):
         LOOKUP_TABLE = '0123456789abcdef'
         # TODO

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/test_multiply.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mymodule/datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/datatypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymodule/multiply.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/multiply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/euclid.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/euclid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/mod_subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_subtract.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,11 +143,11 @@
     </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python tests.Unittests in test_mod_add.py" />
-      <item itemvalue="Python tests.Unittests in test_multiply.py" />
       <item itemvalue="Python.multiply" />
       <item itemvalue="Python tests.Unittests in test_add.py" />
       <item itemvalue="Python tests.Unittests in test_datatypes.py" />
+      <item itemvalue="Python tests.Unittests in test_mod_add.py" />
+      <item itemvalue="Python tests.Unittests in test_multiply.py" />
     </list>
     <recent_temporary>
       <list>
