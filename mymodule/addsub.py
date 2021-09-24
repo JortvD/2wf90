@@ -1,3 +1,5 @@
+import copy
+
 from mymodule import datatypes
 
 def add(x, y):
@@ -65,10 +67,11 @@ def subtract(x, y):
 
     m = x.num_digits
     n = y.num_digits
-    y.prepend_zeroes(m - n)
+    y_1 = copy.copy(y)
+    y_1.prepend_zeroes(m - n)
     z = datatypes.LargeInteger(None, radix=x.radix)
     for i in range(m-1, -1, -1):
-        z_i = x[i] - y[i] - carry
+        z_i = x[i] - y_1[i] - carry
         if z_i < 0:
             z_i += x.radix
             carry = 1

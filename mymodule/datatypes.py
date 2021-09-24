@@ -1,4 +1,5 @@
-from mymodule import addsub, multiply
+from mymodule import addsub, multiply, reduce, division_with_remainder
+
 
 class LargeInteger(object):
 
@@ -19,7 +20,7 @@ class LargeInteger(object):
 
     def __getitem__(self, i):
         # To abstract away the sign bit
-        return self._val[i+1]
+        return self._val[i + 1]
 
     def __setitem__(self, i, value):
         # To abstract away the sign bit
@@ -35,12 +36,17 @@ class LargeInteger(object):
     def __mul__(self, y):
         return multiply.multiply(self, y)
 
+    def __truediv__(self, y):
+        return division_with_remainder.div_with_r(self, y)
+
+    def __mod__(self, m):
+        return reduce.reduce(self, m)
+
+    def __floordiv__(self, y):
+        return division_with_remainder.div_with_r(self, y)[0]
+
     def __lshift__(self, y):
         self._val.extend([0 * y])
-        return self
-
-    def __abs__(self):
-        self._val[0] = 0
         return self
 
     def __str__(self):
@@ -48,7 +54,7 @@ class LargeInteger(object):
         # TODO
         s = ''
         if self._val[0] == 1:
-            s+='-'
+            s += '-'
 
         found_digits = False
         for i in range(1, len(self._val)):
@@ -64,41 +70,54 @@ class LargeInteger(object):
 
         return s
 
-    def __lt__(self, y):
-        if self.is_negative and not y.is_negative:
-            return True
-        elif y.is_negative and not self.is_negative:
-            return False
-
-        x_start = 0
-        for i in range(1, len(self._val) - 1):
-            if self._val[i] != 0:
-                break
-            x_start += 1
-        y_start = 0
-        for i in range(0, y.num_digits - 1):
-            if y[i] != 0:
-                break
-            y_start += 1
-        
-        x_left = self.num_digits - x_start
-        y_left = y.num_digits - y_start
-        res = False
-        if x_left != y_left:
-             res = x_left < y_left
-        else:
-            for i in range(0, x_left):
-                if self._val[x_start + i +1] != y[y_start + i]:
-                    res = self._val[x_start + i +1] < y[y_start + i]
-                    break
-
-        if self.is_negative and y.is_negative:
-            res = not res
-
-        return res
-
     def __len__(self):
         return self.num_digits
+
+    def get_digit(self, i):
+        return self.__getitem__(i)
+
+    def __gt__(self, y):
+        if self.is_negative and not y.is_negative:
+            return False
+        elif y.is_negative and not self.is_negative:
+            return True
+        elif self.__len__() > len(y):
+            return self.is_positive
+        elif self.__len__() < len(y):
+            return self.is_negative
+
+        for i in range(0, self.__len__()):
+            if self.__getitem__(i) > y.get_digit(i):
+                return self.is_positive
+            elif self.__getitem__(i) < y.get_digit(i):
+                return self.is_negative
+
+        return False
+
+    def __lt__(self, y):
+        return not self.__ge__(y)
+
+    def __eq__(self, y):
+        if self.is_negative and not y.is_negative:
+            return False
+        elif y.is_negative and not self.is_negative:
+            return False
+        elif self.__len__() != len(y):
+            return False
+
+        for i in range(0, self.__len__()):
+            if self.__getitem__(i) != y.get_digit(i):
+                return False
+        return True
+
+    def __ge__(self, y):
+        return self.__gt__(y) or self.__eq__(y)
+
+    def __le__(self, y):
+        return not self.__gt__(y)
+
+    def get_radix(self):
+        return self.radix
 
     def make_negative(self):
         self._val[0] = 1
@@ -120,13 +139,13 @@ class LargeInteger(object):
                 break
             strip_amount += 1
 
-        self._val = [self._val[0]] + self._val[1+ strip_amount:]
+        self._val = [self._val[0]] + self._val[1 + strip_amount:]
 
     def flip_sign(self):
         self._val[0] ^= 1
 
     def slice(self, i, j):
-        return self._val[i+1:j+1]
+        return self._val[i + 1:j + 1]
 
     def lshift(self, y):
         self._val.extend([0] * y)
@@ -143,7 +162,7 @@ class LargeInteger(object):
 
     @property
     def num_digits(self):
-        return len(self._val) -  1
+        return len(self._val) - 1
 
     @property
     def is_negative(self):
@@ -159,6 +178,6 @@ class LargeInteger(object):
             raise ValueError('Base > 16 not supported')
         is_negative = s.lstrip()[0] == '-'
         allowed_chars = '0123456789'
-        allowed_chars += 'abcdef'[:max(radix - 10,0)]
-        digits = [int(c,radix) for c in s if c in allowed_chars]
+        allowed_chars += 'abcdef'[:max(radix - 10, 0)]
+        digits = [int(c, radix) for c in s if c in allowed_chars]
         return [1 if is_negative else 0] + digits
