@@ -59,10 +59,9 @@ class LargeInteger(object):
     def __lt__(self, y):
         if self.is_negative and not y.is_negative:
             return True
+        elif y.is_negative and not self.is_negative:
+            return False
 
-        # This optimization does not work, since we have leading zeroes
-        # if self.num_digits != y.num_digits:
-        #     return self.num_digits < y.num_digits
         x_start = 0
         for i in range(1, len(self._val) - 1):
             if self._val[i] != 0:
@@ -76,13 +75,19 @@ class LargeInteger(object):
         
         x_left = self.num_digits - x_start
         y_left = y.num_digits - y_start
+        res = False
         if x_left != y_left:
-             return x_left < y_left
+             res = x_left < y_left
+        else:
+            for i in range(0, x_left):
+                if self._val[x_start + i +1] != y[y_start + i]:
+                    res = self._val[x_start + i +1] < y[y_start + i]
+                    break
 
-        for i in range(0, x_left):
-            if self._val[x_start + i +1] != y[y_start + i]:
-                return self._val[x_start + i +1] < y[y_start + i]
-        return False
+        if self.is_negative and y.is_negative:
+            res = not res
+
+        return res
 
     def __len__(self):
         return self.num_digits
