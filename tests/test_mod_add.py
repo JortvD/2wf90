@@ -1,7 +1,6 @@
 import unittest
 import sys
-sys.path.append("..")
-import mod_add
+from mymodule import mod_add
 
 def test(test, x, y, m, b, ans):
     params = {"x": x, "y": y, "m": m,"radix": b}

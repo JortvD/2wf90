@@ -1,5 +1,5 @@
 import unittest
-import datatypes
+from mymodule import datatypes
 
 class TestSubtract(unittest.TestCase):
 

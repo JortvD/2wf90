@@ -1,6 +1,6 @@
 import copy
-from addsub import add, subtract
-from datatypes import LargeInteger
+from mymodule.addsub import add, subtract
+from mymodule.datatypes import LargeInteger
 
 def karatsuba_recursive(x, y, b, params):
     # If either x or y are 0 then return 0.

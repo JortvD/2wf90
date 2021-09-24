@@ -1,4 +1,4 @@
-import datatypes
+from mymodule import datatypes
 
 def add(x, y):
     make_negative = False

@@ -1,7 +1,7 @@
 import unittest
-import addsub
-import common
-import datatypes
+#from assignment1 import datatypes
+from mymodule import datatypes
+
 
 class TestAdd(unittest.TestCase):
 

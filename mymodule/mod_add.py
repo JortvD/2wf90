@@ -1,5 +1,5 @@
-from datatypes import LargeInteger
-from reduce import reduce
+from mymodule.datatypes import LargeInteger
+from mymodule.reduce import reduce
 
 def mod_add(x, y, m, b, params):
     x = reduce(x, m)

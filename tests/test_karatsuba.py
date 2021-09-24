@@ -1,7 +1,6 @@
 import unittest
 import sys
-sys.path.append("..")
-import karatsuba
+from mymodule import karatsuba
 
 def test(test, x, y, b, ans):
     params = {"x": x, "y": y, "radix": b}

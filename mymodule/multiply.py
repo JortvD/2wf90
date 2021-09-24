@@ -1,4 +1,3 @@
-import common
 import math
 
 def multiply(x, y):

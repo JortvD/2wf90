@@ -1,15 +1,16 @@
 import asn1tools as asn
 import json
 
-import euclid
-import inverse
-import karatsuba
-import mod_add
-import mod_multiply
-import mod_subtract
-import reduce
-import datatypes
-import sys
+from mymodule import (euclid,
+          inverse,
+          karatsuba,
+          mod_add,
+          mod_multiply,
+          mod_subtract,
+          reduce,
+          datatypes)
+
+
 # import subtract
 
 ### AfS software assignment 1 - example code ###

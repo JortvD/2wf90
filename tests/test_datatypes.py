@@ -1,7 +1,6 @@
 import unittest
 import sys
-sys.path.append("..")
-import datatypes
+from mymodule import datatypes
 
 class TestSubtract(unittest.TestCase):
 

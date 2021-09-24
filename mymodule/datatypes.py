@@ -1,5 +1,4 @@
-import addsub
-import multiply
+from mymodule import addsub, multiply
 
 class LargeInteger(object):
 
