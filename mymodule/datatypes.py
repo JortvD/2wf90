@@ -21,6 +21,11 @@ class LargeInteger(object):
         # To abstract away the sign bit
         return self._val[i+1]
 
+    def __setitem__(self, i, value):
+        # To abstract away the sign bit
+        self._val[i + 1] = value
+        return self._val
+
     def __add__(self, y):
         return addsub.add(self, y)
 
