@@ -43,11 +43,9 @@ def subtract(x, y):
     flip_carry = False
 
     if x.is_negative and y.is_negative:
-        # both negative
-        # -x - -y => -x + y => y - x
-        old_x = x
-        x = y
-        y = old_x
+        x.make_positive()
+        y.make_positive()
+        flip_carry = True
     elif y.is_negative:
         # x - -y = x + y
         y.make_positive()
