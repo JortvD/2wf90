@@ -6,6 +6,7 @@ def karatsuba_recursive(x, y, b, params):
     # If either x or y are 0 then return 0.
     if((len(x) == 0) | (len(y) == 0)): return LargeInteger('0', b)
 
+    # Check if result should be negative. This data is not given through recursively, as it is not needed.
     negative = (bool(x.is_positive) ^ bool(y.is_positive))
 
     # If x and y are 1 then
@@ -15,31 +16,26 @@ def karatsuba_recursive(x, y, b, params):
         # Multiply x[0] and y[0]
         mult = x[0] * y[0]
         
-        # Return an array of the two digits of the multiplication, both mod b
-        xy = LargeInteger([1 if negative else 0, int(mult//b), int(mult%b)], b)
+        # Return a LargeInteger of the two digits of the multiplication
+        xy = LargeInteger([1 if negative else 0, mult//b, int(mult%b)], b)
         xy.strip_leading_zeroes()
         return xy
     
-    # If the length of x is uneven 
+    # If the length of x or is uneven make it even by adding a lead 0
     if(len(x) % 2 == 1): 
-        # then add a 0 at the beginning of x
-        x.insert(0, 0)
-    if(len(y) % 2 == 1): 
-        # then add a 0 at the beginning of y
-        y.insert(0, 0)
+        x.prepend_zeroes(1)
+    if(len(y) % 2 == 1):
+        y.prepend_zeroes(1)
 
-    # Here we take that n is the largest length of either x and y
     n = max(len(x), len(y))
+
+    # Add leading 0's to x and y to make them the same length
     x = LargeInteger([0] + [0] * (n - len(x)) + x.slice(0, len(x)), b)
     y = LargeInteger([0] + [0] * (n - len(y)) + y.slice(0, len(y)), b)
 
-    # The high part of x
     xhi = LargeInteger([0] + x.slice(0, len(x)//2), b)
-    # The low part of x
     xlo = LargeInteger([0] + x.slice(len(x)//2, len(x)), b)
-    # The high part of y
     yhi = LargeInteger([0] + y.slice(0, len(y)//2), b)
-    # The low part of y
     ylo = LargeInteger([0] + y.slice(len(y)//2, len(y)), b)
 
     # The high part of the karatsuba multiplication
@@ -56,23 +52,20 @@ def karatsuba_recursive(x, y, b, params):
     xy = xhiyhi.lshift(n) + xymid.lshift(n//2) + xloylo
     xy.strip_leading_zeroes()
 
+    # Make negative if the result should be nagative
     if negative: xy.make_negative()
 
     return xy
 
 # The karatsuba function that is called from the script. It starts the recursive function.
 def calc(params):
-    # Parses the base b from the params
     b = int(params['radix'])
-    # Parses the x value from the params
     x = LargeInteger(params['x'], b)
-    # Parses the y value from the params
     y = LargeInteger(params['y'], b)
 
-    # Resets the multiplication counter
     params['count_mul'] = 0
-    # Resets the addition counter
     params['count_add'] = 0
+
     # Calculates and parses the answer
     answer = karatsuba_recursive(x, y, b, params)
     params['answer'] = str(answer)
