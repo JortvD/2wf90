@@ -6,6 +6,7 @@ from mymodule import datatypes
 def reduce(x, m):
     neg = x.is_negative
     x_1 = copy.deepcopy(x)
+    x_1.make_positive()
 
     k = len(x)
     n = len(m)
@@ -18,24 +19,12 @@ def reduce(x, m):
 
         bm = m * b_i
 
-        if neg:
-            # if x was negative then we have to look at the negative value of b_i * m
-            bm.make_negative()
-            # the while-loop stops when x_1 is larger than the neg value of b_i * m
-            while x_1 <= bm:
-                x_1 = x_1 - bm
-        else:
-            # the while-loop stops when x_1 is smaller than value of b_i * m
-            while x_1 >= bm:
-                x_1 = x_1 - bm
+        while x_1 >= bm:
+            x_1 = x_1 - bm
 
-    if x_1 >= datatypes.LargeInteger('0') or x_1 == datatypes.LargeInteger('0'):
-        x_1 = x_1
+    if x >= datatypes.LargeInteger('0') or x_1 == datatypes.LargeInteger('0'):
+        y = x_1
     else:
-        if neg:
-            # if x was negative then we add instead of subtract
-            x_1 = m + x_1
-        else:
-            x_1 = m - x_1
+        y = m - x_1
 
-    return x_1
+    return y
