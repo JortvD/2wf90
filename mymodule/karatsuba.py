@@ -1,4 +1,5 @@
 from mymodule.datatypes import LargeInteger
+from mymodule import profiler
 
 def karatsuba_recursive(x, y, b):
     """
@@ -13,6 +14,7 @@ def karatsuba_recursive(x, y, b):
     # If x and y are 1 then
     if(len(x) == 1 & len(y) == 1):
         # Multiply x[0] and y[0]
+        profiler.count_operation('Multiply')
         mult = x[0] * y[0]
 
         # Return a LargeInteger of the two digits of the multiplication
@@ -48,6 +50,7 @@ def karatsuba_recursive(x, y, b):
     xymid.strip_leading_zeroes()
 
     # The summation part of the karatsuba algorithm
+    profiler.count_operation('Add')
     xy = xhiyhi.lshift(n) + xymid.lshift(n//2) + xloylo
     xy.strip_leading_zeroes()
 
