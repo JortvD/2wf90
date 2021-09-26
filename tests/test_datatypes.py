@@ -35,5 +35,9 @@ class TestSubtract(unittest.TestCase):
         y = datatypes.LargeInteger('-13', 10)
         self.assertFalse(x < y)
 
+        x = datatypes.LargeInteger('-26', 10)
+        y = datatypes.LargeInteger('-50', 10)
+        self.assertFalse(x <= y)
+
 if __name__ == '__main__':
     unittest.main()

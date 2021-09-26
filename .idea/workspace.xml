@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="comparisons, reduce, and division with remainder">
+    <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="more efficient reduce">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymodule/multiply.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/multiply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/addsub.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/addsub.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/datatypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/mod_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_add.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mymodule/reduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/reduce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_multiply.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_multiply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_add.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_datatypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_mod_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_mod_add.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_reduce.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reduce.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +58,7 @@
       <recent name="$PROJECT_DIR$/tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_reduce.py">
+  <component name="RunManager" selected="Python tests.Unittests in test_mod_add.py">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,7 +80,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_division_with_remainder.Test.test_div_with_r" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_add.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -85,11 +90,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_division_with_remainder.Test.test_div_with_r&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_add.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_reduce.Test.test_reduce" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_datatypes.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,11 +104,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_reduce.Test.test_reduce&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_datatypes.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_multiply.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_mod_add.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -113,7 +118,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_multiply.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_mod_add.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -131,7 +136,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in tests" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_subtract.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,25 +146,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_subtract.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python tests.Unittests for test_reduce.Test.test_reduce" />
-      <item itemvalue="Python tests.Unittests for test_division_with_remainder.Test.test_div_with_r" />
-      <item itemvalue="Python tests.Unittests in tests" />
       <item itemvalue="Python tests.Unittests in test_reduce.py" />
-      <item itemvalue="Python tests.Unittests in test_multiply.py" />
+      <item itemvalue="Python tests.Unittests in test_mod_add.py" />
+      <item itemvalue="Python tests.Unittests in test_add.py" />
+      <item itemvalue="Python tests.Unittests in test_datatypes.py" />
+      <item itemvalue="Python tests.Unittests in test_subtract.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in test_mod_add.py" />
         <item itemvalue="Python tests.Unittests in test_reduce.py" />
-        <item itemvalue="Python tests.Unittests in test_multiply.py" />
-        <item itemvalue="Python tests.Unittests in tests" />
-        <item itemvalue="Python tests.Unittests for test_division_with_remainder.Test.test_div_with_r" />
-        <item itemvalue="Python tests.Unittests for test_reduce.Test.test_reduce" />
+        <item itemvalue="Python tests.Unittests in test_subtract.py" />
+        <item itemvalue="Python tests.Unittests in test_datatypes.py" />
+        <item itemvalue="Python tests.Unittests in test_add.py" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632506651283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="more efficient reduce">
+      <created>1632614048882</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632614048882</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +216,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mod subtract and unfinished euclid" />
     <MESSAGE value="comparisons, reduce, and division with remainder" />
-    <option name="LAST_COMMIT_MESSAGE" value="comparisons, reduce, and division with remainder" />
+    <MESSAGE value="more efficient reduce" />
+    <option name="LAST_COMMIT_MESSAGE" value="more efficient reduce" />
   </component>
 </project>

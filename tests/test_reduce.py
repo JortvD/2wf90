@@ -12,7 +12,7 @@ class Test(TestCase):
         x = datatypes.LargeInteger('-76', 10)
         y = datatypes.LargeInteger('5', 10)
         res = x % y
-        self.assertEqual(str(res), '-1')
+        self.assertEqual(str(res), '4')
 
         x = datatypes.LargeInteger('1010', 2)
         y = datatypes.LargeInteger('1010', 2)

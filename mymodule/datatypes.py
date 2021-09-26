@@ -77,6 +77,7 @@ class LargeInteger(object):
         return self.__getitem__(i)
 
     def __gt__(self, y):
+        # i should prolly explain all this but i'm tired
         if self.is_negative and not y.is_negative:
             return False
         elif y.is_negative and not self.is_negative:

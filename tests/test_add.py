@@ -21,5 +21,10 @@ class TestAdd(unittest.TestCase):
         res2 = x + y
         self.assertEqual(str(res2), '2675')
 
+        x = datatypes.LargeInteger('-123', 10)
+        y = datatypes.LargeInteger('22', 10)
+        res2 = x + y
+        self.assertEqual(str(res2), '-101')
+
 if __name__ == '__main__':
     unittest.main()
