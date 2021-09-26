@@ -9,4 +9,4 @@ def inverse(a, m):
     if a_ == LargeInteger('1', radix=a.radix):
         return x1
     else:
-        return "inverse does not exist"
+        return "ERROR - inverse does not exist"
