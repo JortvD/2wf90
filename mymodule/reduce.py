@@ -4,7 +4,6 @@ from mymodule import datatypes
 
 
 def reduce(x, m):
-    neg = x.is_negative
     x_1 = copy.deepcopy(x)
     x_1.make_positive()
 

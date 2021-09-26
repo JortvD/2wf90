@@ -2,6 +2,7 @@ import copy
 import math
 from mymodule import datatypes, profiler
 
+
 def multiply(x, y):
     sign = 0
 
