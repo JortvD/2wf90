@@ -25,8 +25,8 @@ def multiply(x, y):
     for i in range(0, m):
         carry = 0
         for j in range(0, n):
-            profiler.count_operation('Add', count=2)
-            profiler.count_operation('Multiply')
+            profiler.count_operation('Add', count=3)
+            profiler.count_operation('Multiply', count=2)
             t = z[i+j] + x_1[i] * y_1[j] + carry
             carry = t // x_1.radix
             z[i+j] = t - (carry * x_1.radix)
