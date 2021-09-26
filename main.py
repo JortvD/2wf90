@@ -1,5 +1,6 @@
 import asn1tools as asn
 import json
+import sys
 
 from mymodule import (euclid,
           inverse,
@@ -11,8 +12,7 @@ from mymodule import (euclid,
           datatypes,
           profiler)
 
-
-# import subtract
+DEBUG = True
 
 ### AfS software assignment 1 - example code ###
 
@@ -116,10 +116,21 @@ for exercise in my_exercises['exercises']:
     calc_params = params
     try:
         if operation == 'euclid':
+            if DEBUG:
+                if not ( calc_params['answ-a'] == str(ans_a) and
+                        calc_params['answ-d']
+                        == str(ans_d) and calc_params['answ-b']  == str(ans_b)):
+                    print(calc_params, ans_d, ans_a, ans_b)
+                    sys.exit(1)
             calc_params['answ-d'] = str(ans_d)
             calc_params['answ-a'] = str(ans_a)
             calc_params['answ-b'] = str(ans_b)
         else:
+            if DEBUG:
+                if not (calc_params['answer'] == str(answer)):
+                    print(calc_params, answer)
+                    sys.exit(1)
+
             calc_params['answer'] = str(answer)
     except ValueError as e:
         print("Could not obtain answer for the question below:",str(e))
