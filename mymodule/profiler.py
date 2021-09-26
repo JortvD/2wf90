@@ -14,13 +14,13 @@ class OperationStatistics:
         self._op_counts = dict()
         OperationStatistics.__instance = self
 
-    def register_operation(self, op_name):
+    def register_operation(self, op_name, add_cnt=1):
         try:
             count = self._op_counts[op_name]
         except KeyError:
             count = 0
 
-        count += 1
+        count += add_cnt
         self._op_counts[op_name] = count
 
     def reset_statistics(self):
@@ -35,12 +35,6 @@ class OperationStatistics:
         return self._op_counts
 
 
-def count_operation(operation_name):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            stats = OperationStatistics.getInstance()
-            stats.register_operation(operation_name)
-            res = func(*args, **kwargs)
-            return res
-        return wrapper
-    return decorator
+def count_operation(operation_name, count=1):
+    stats = OperationStatistics.getInstance()
+    stats.register_operation(operation_name, add_cnt=count)

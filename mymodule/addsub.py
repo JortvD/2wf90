@@ -2,7 +2,6 @@ import copy
 from mymodule import datatypes, profiler
 
 
-@profiler.count_operation("Add")
 def add(x, y):
     make_negative = False
 
@@ -35,8 +34,10 @@ def add(x, y):
     x.prepend_zeroes(max(n-m, 0))
     y.prepend_zeroes(max(m-n, 0))
     for i in range(max(m, n) - 1, -1, -1):
+        profiler.count_operation('Add', count=2)
         z_i = x[i] + y[i] + carry
         if z_i >= x.radix:
+            profiler.count_operation('Add')
             z_i -= x.radix
             carry = 1
         else:
@@ -53,7 +54,6 @@ def add(x, y):
     return z
 
 
-@profiler.count_operation("Subtract")
 def subtract(x, y):
     carry = 0
     flip = False
@@ -102,8 +102,11 @@ def subtract(x, y):
     y_1.prepend_zeroes(m - n)
     z = datatypes.LargeInteger(None, radix=x.radix)
     for i in range(m-1, -1, -1):
+        # Subtract counts as an add operation according to assignment requirements
+        profiler.count_operation('Add', count=2)
         z_i = x_1[i] - y_1[i] - carry
         if z_i < 0:
+            profiler.count_operation('Add')
             z_i += x_1.radix
             carry = 1
         else:
