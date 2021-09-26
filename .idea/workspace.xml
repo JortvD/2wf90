@@ -1,39 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="fix addition, subtraction, reduce, mod add">
-      <change beforePath="$PROJECT_DIR$/mymodule/mod_subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_subtract.py" afterDir="false" />
+    <list default="true" id="8dac4e6d-09b7-4ce5-9587-e09ba7bbe8cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/test_inverse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/inverse.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/inverse.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
-  <component name="ProjectId" id="1yPYRJlwUaSWq9wj2ckdYfb1nxA" />
+  <component name="ProjectId" id="1yg0Z0zUcpNyZ2piDvGmnyoUvlM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,50 +25,29 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_euclid.py">
-    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests in test_inverse.py">
+    <configuration name="Python tests in rj" type="tests" factoryName="Autodetect" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="/usr/bin/python3.8" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in test_datatypes.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="2wf90" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_datatypes.py&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_euclid.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_euclid.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,6 +58,34 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_euclid.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_inverse.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="2wf90" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_inverse.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_karatsuba.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="2wf90" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_karatsuba.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -114,90 +103,31 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_reduce.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="2wf90" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_reduce.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in test_subtract.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="2wf90" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_subtract.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python tests.Unittests in test_reduce.py" />
+      <item itemvalue="Python tests.Python tests in rj" />
+      <item itemvalue="Python tests.Python tests in test_euclid.py" />
+      <item itemvalue="Python tests.Unittests in test_karatsuba.py" />
       <item itemvalue="Python tests.Unittests in test_mod_add.py" />
-      <item itemvalue="Python tests.Unittests in test_datatypes.py" />
-      <item itemvalue="Python tests.Unittests in test_subtract.py" />
-      <item itemvalue="Python tests.Unittests in test_euclid.py" />
+      <item itemvalue="Python tests.Unittests in test_inverse.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in test_euclid.py" />
+        <item itemvalue="Python tests.Unittests in test_inverse.py" />
+        <item itemvalue="Python tests.Python tests in test_euclid.py" />
         <item itemvalue="Python tests.Unittests in test_mod_add.py" />
-        <item itemvalue="Python tests.Unittests in test_reduce.py" />
-        <item itemvalue="Python tests.Unittests in test_subtract.py" />
-        <item itemvalue="Python tests.Unittests in test_datatypes.py" />
+        <item itemvalue="Python tests.Unittests in test_karatsuba.py" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="" />
-      <created>1632154680413</created>
+      <changelist id="8dac4e6d-09b7-4ce5-9587-e09ba7bbe8cb" name="Changes" comment="" />
+      <created>1632657977731</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1632154680413</updated>
+      <updated>1632657977731</updated>
     </task>
-    <task id="LOCAL-00001" summary="mod subtract and unfinished euclid">
-      <created>1632484330843</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1632484330843</updated>
-    </task>
-    <task id="LOCAL-00002" summary="comparisons, reduce, and division with remainder">
-      <created>1632506651283</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1632506651283</updated>
-    </task>
-    <task id="LOCAL-00003" summary="more efficient reduce">
-      <created>1632614048882</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1632614048882</updated>
-    </task>
-    <task id="LOCAL-00004" summary="fix addition, subtraction, reduce, mod add">
-      <created>1632657006897</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1632657006897</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,13 +140,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="mod subtract and unfinished euclid" />
-    <MESSAGE value="comparisons, reduce, and division with remainder" />
-    <MESSAGE value="more efficient reduce" />
-    <MESSAGE value="fix addition, subtraction, reduce, mod add" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix addition, subtraction, reduce, mod add" />
   </component>
 </project>
