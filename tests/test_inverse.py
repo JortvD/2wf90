@@ -20,10 +20,5 @@ class TestInverse(unittest.TestCase):
         res = inverse(a, m)
         self.assertEqual(str(res), 'inverse does not exist')
 
-        a = datatypes.LargeInteger('3', 10)
-        m = datatypes.LargeInteger('-5', 10)
-        res = inverse(a, m)
-        self.assertEqual(str(res), '2')
-
 if __name__ == '__main__':
     unittest.main()
