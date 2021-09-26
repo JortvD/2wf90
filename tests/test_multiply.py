@@ -1,6 +1,6 @@
 import unittest
 from mymodule import datatypes
-from mymodule import multiply
+
 
 class TestMultiply(unittest.TestCase):
 
@@ -42,6 +42,7 @@ class TestMultiply(unittest.TestCase):
         res = x * y
         self.assertEqual(str(res), '66')
         self.assertEqual(len(res), 2)
+
 
 if __name__ == '__main__':
     unittest.main()
