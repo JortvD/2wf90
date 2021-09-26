@@ -17,3 +17,8 @@ class Test(TestCase):
         res = mod_subtract.mod_subtract(x, y, m)
         self.assertEqual(str(res), '1')
 
+        x = datatypes.LargeInteger('-4', 10)
+        y = datatypes.LargeInteger('-52', 10)
+        m = datatypes.LargeInteger('7', 10)
+        res = mod_subtract.mod_subtract(x, y, m)
+        self.assertEqual(str(res), '6')

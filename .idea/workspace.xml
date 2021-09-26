@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b17b6027-e2e1-410a-9b65-100436c545cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/test_mod_subtract.py" afterDir="false" />
+    <list default="true" id="b17b6027-e2e1-410a-9b65-100436c545cb" name="Changes" comment="fixed mod subtract + tests">
+      <change afterPath="$PROJECT_DIR$/tests/test_mod_multiply.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymodule/mod_subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_subtract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/mod_multiply.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_multiply.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests in test_mod_multiply.py">
     <configuration name="Python tests for test_mod_subtract.Test.test_mod_subtract" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -41,8 +41,23 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in test_mod_multiply.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="2wf90" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_mod_multiply.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in test_mod_multiply.py" />
         <item itemvalue="Python tests.Python tests for test_mod_subtract.Test.test_mod_subtract" />
       </list>
     </recent_temporary>
@@ -56,6 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1632661545991</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixed mod subtract + tests">
+      <created>1632661991536</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632661991536</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -68,5 +91,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed mod subtract + tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed mod subtract + tests" />
   </component>
 </project>
