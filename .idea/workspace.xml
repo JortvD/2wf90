@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="fix addition, subtraction, reduce, mod add">
-      <change beforePath="$PROJECT_DIR$/mymodule/mod_subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/mod_subtract.py" afterDir="false" />
+    <list default="true" id="9bd3d788-705c-4b6d-869d-6c3b3a8c5532" name="Changes" comment="fixed euclid">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymodule/addsub.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymodule/addsub.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_subtract.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_subtract.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
       <recent name="$PROJECT_DIR$/tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_euclid.py">
+  <component name="RunManager" selected="Python tests.Unittests in test_subtract.py">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -72,7 +74,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_datatypes.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_add.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -82,7 +84,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_datatypes.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_add.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -114,20 +116,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_reduce.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="2wf90" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_reduce.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittests in test_subtract.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="2wf90" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,21 +130,35 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in tests" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="2wf90" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python tests.Unittests in test_reduce.py" />
       <item itemvalue="Python tests.Unittests in test_mod_add.py" />
-      <item itemvalue="Python tests.Unittests in test_datatypes.py" />
       <item itemvalue="Python tests.Unittests in test_subtract.py" />
       <item itemvalue="Python tests.Unittests in test_euclid.py" />
+      <item itemvalue="Python tests.Unittests in tests" />
+      <item itemvalue="Python tests.Unittests in test_add.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in test_subtract.py" />
+        <item itemvalue="Python tests.Unittests in test_add.py" />
+        <item itemvalue="Python tests.Unittests in tests" />
         <item itemvalue="Python tests.Unittests in test_euclid.py" />
         <item itemvalue="Python tests.Unittests in test_mod_add.py" />
-        <item itemvalue="Python tests.Unittests in test_reduce.py" />
-        <item itemvalue="Python tests.Unittests in test_subtract.py" />
-        <item itemvalue="Python tests.Unittests in test_datatypes.py" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632657006897</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed euclid">
+      <created>1632657576834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632657576834</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +226,7 @@
     <MESSAGE value="comparisons, reduce, and division with remainder" />
     <MESSAGE value="more efficient reduce" />
     <MESSAGE value="fix addition, subtraction, reduce, mod add" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix addition, subtraction, reduce, mod add" />
+    <MESSAGE value="fixed euclid" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed euclid" />
   </component>
 </project>
