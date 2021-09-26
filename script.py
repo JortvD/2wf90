@@ -8,7 +8,8 @@ from mymodule import (euclid,
           mod_multiply,
           mod_subtract,
           reduce,
-          datatypes)
+          datatypes,
+          profiler)
 
 
 # import subtract
@@ -65,6 +66,9 @@ exercise_file.close()
 # Create answer JSON
 my_answers = {'exercises': []}
 
+# Create the profiler that is used to count operations
+ops_counter = profiler.OperationStatistics.getInstance()
+
 # Loop over exercises and solve
 for exercise in my_exercises['exercises']:
     operation = exercise[0]  # get operation type
@@ -93,7 +97,7 @@ for exercise in my_exercises['exercises']:
     #     params = mod_multiply.modMultiply();
     #
     # if operation == 'karatsuba':
-    #     params = karatsuba.calc(params);
+    #     params = karatsuba.karatsuba_recursive(x, y, radix);
     #
     # if operation == 'reduce':
     #     params = reduce.reduce();
@@ -104,14 +108,37 @@ for exercise in my_exercises['exercises']:
     # if operation == 'inverse':
     #     params = inverse.inverse();
 
+    calc_params = params
+    calc_params['answer'] = str(answer)
+    if operation == 'karatsuba' or operation == 'multiply':
+        stats = ops_counter.statistics
+
+        try:
+            mul_count = stats['Multiply']
+        except KeyError:
+            mul_count = 0
+
+        try:
+            add_count = stats['Add']
+        except KeyError:
+            add_count = 0
+
+        calc_params['count-mul'] = mul_count
+        calc_params['count-add'] = add_count
+
+
     # Save answer
     #print(params['x'],params['y'])
     #print(operation+":"+params['answer'] + "=" + calc_params['answer'] + "?" + str(calc_params['answer'] == params['answer']))
     #if calc_params['answer'] != params['answer']:
     #    sys.exit(1)
-    print(str(answer))
     # TODO
-    #my_answers['exercises'].append({operation: calc_params})
+    my_answers['exercises'].append({operation: calc_params})
+
+    print("Operation statistics for:", operation)
+    ops_counter.show_statistics()
+    # Reset the counters
+    ops_counter.reset_statistics()
 
 ###### Creating an answers list file ######
 

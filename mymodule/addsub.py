@@ -1,9 +1,9 @@
 import copy
-from mymodule import datatypes
+from mymodule import datatypes, profiler
 
 
+@profiler.count_operation("Add")
 def add(x, y):
-
     make_negative = False
 
     if x.is_negative and y.is_negative:
@@ -53,6 +53,7 @@ def add(x, y):
     return z
 
 
+@profiler.count_operation("Subtract")
 def subtract(x, y):
     carry = 0
     flip = False
@@ -108,7 +109,7 @@ def subtract(x, y):
         else:
             carry = 0
         z.append(z_i)
-    
+
     if carry == 1:
         z.make_negative()
 

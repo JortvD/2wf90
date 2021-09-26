@@ -1,11 +1,12 @@
 import unittest
-import sys
-from mymodule import karatsuba
+from mymodule import karatsuba, datatypes
 
-def test(test, x, y, b, ans):
+def test(my_test, x, y, b, ans):
     params = {"x": x, "y": y, "radix": b}
-    res = karatsuba.calc(params)
-    test.assertEqual(res['answer'], ans)
+    real_x = datatypes.LargeInteger(x, b)
+    real_y = datatypes.LargeInteger(y, b)
+    res = karatsuba.karatsuba_recursive(real_x, real_y, b)
+    my_test.assertEqual(str(res), ans)
 
 class TestKaratsuba(unittest.TestCase):
 

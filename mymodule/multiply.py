@@ -1,8 +1,8 @@
 import copy
 import math
-from mymodule import datatypes
+from mymodule import datatypes, profiler
 
-
+@profiler.count_operation("Multiply")
 def multiply(x, y):
     sign = 0
 
