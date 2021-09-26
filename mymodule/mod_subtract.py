@@ -1,6 +1,4 @@
 from mymodule import datatypes
-from mymodule.reduce import reduce
-
 
 def mod_subtract(x, y, m):
     x_1 = x % m
@@ -11,5 +9,3 @@ def mod_subtract(x, y, m):
         z += m
 
     return z
-
-
