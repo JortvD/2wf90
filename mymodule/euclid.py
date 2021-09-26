@@ -4,12 +4,12 @@ from mymodule import datatypes
 
 
 def euclid(a, b):
-    x_1 = datatypes.LargeInteger('1')
-    x_2 = datatypes.LargeInteger('0')
-    y_1 = datatypes.LargeInteger('0')
-    y_2 = datatypes.LargeInteger('1')
+    x_1 = datatypes.LargeInteger('1', a.get_radix())
+    x_2 = datatypes.LargeInteger('0', a.get_radix())
+    y_1 = datatypes.LargeInteger('0', a.get_radix())
+    y_2 = datatypes.LargeInteger('1', a.get_radix())
 
-    while b > datatypes.LargeInteger('0'):
+    while b > datatypes.LargeInteger('0', a.get_radix()):
         q = a // b
         r = a - q * b
 
