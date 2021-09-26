@@ -4,10 +4,9 @@ from mymodule import datatypes
 
 
 def div_with_r(x, y):
-    if (x.is_positive and y.is_negative) or (x.is_negative and y.is_positive):
-        neg = True
-    else:
-        neg = False
+
+    pos_r = x.is_positive
+    pos_q = (x.is_positive and y.is_positive) or (x.is_negative and y.is_negative)
 
     a = copy.deepcopy(x)
     b = copy.deepcopy(y)
@@ -21,7 +20,10 @@ def div_with_r(x, y):
         r = r - b
         q = q + datatypes.LargeInteger('1', x.get_radix())
 
-    if neg:
+    if not pos_q:
+        q.make_negative()
+
+    if not pos_r:
         r.make_negative()
 
     return [q, r]
