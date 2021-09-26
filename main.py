@@ -77,9 +77,6 @@ M_OPS = [ 'mod-add', 'mod-subtract', 'mod-multiply', 'reduce', 'inverse' ]
 # Loop over exercises and solve
 for exercise in my_exercises['exercises']:
     operation = exercise[0]  # get operation type
-    print(operation)
-    if operation == 'inverse' or operation == 'euclid':
-        print(params)
     params = exercise[1]  # get parameters
     radix = params['radix']
 
@@ -117,13 +114,17 @@ for exercise in my_exercises['exercises']:
         print('Unknown operation:', operation)
 
     calc_params = params
-    if operation == 'euclid':
-        calc_params['answ-d'] = str(ans_d)
-        calc_params['answ-a'] = str(ans_a)
-        calc_params['answ-b'] = str(ans_b)
-    else:
-        print(answer._val)
-        calc_params['answer'] = str(answer)
+    try:
+        if operation == 'euclid':
+            calc_params['answ-d'] = str(ans_d)
+            calc_params['answ-a'] = str(ans_a)
+            calc_params['answ-b'] = str(ans_b)
+        else:
+            calc_params['answer'] = str(answer)
+    except ValueError as e:
+        print("Could not obtain answer for the question below:",str(e))
+        print(params)
+        continue
 
     if operation == 'karatsuba' or operation == 'multiply':
         stats = ops_counter.statistics
@@ -141,13 +142,7 @@ for exercise in my_exercises['exercises']:
         calc_params['count-mul'] = mul_count
         calc_params['count-add'] = add_count
 
-
     # Save answer
-    #print(params['x'],params['y'])
-    #print(operation+":"+params['answer'] + "=" + calc_params['answer'] + "?" + str(calc_params['answer'] == params['answer']))
-    #if calc_params['answer'] != params['answer']:
-    #    sys.exit(1)
-    # TODO
     my_answers['exercises'].append({operation: calc_params})
 
     print("Operation statistics for:", operation)

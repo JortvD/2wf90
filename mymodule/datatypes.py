@@ -63,7 +63,10 @@ class LargeInteger(object):
                 found_digits = (x_i != 0)
 
             if found_digits:
-                s += LOOKUP_TABLE[x_i]
+                try:
+                    s += LOOKUP_TABLE[x_i]
+                except IndexError:
+                    raise ValueError("Encountered unknown digit")
 
         if not found_digits:
             s = '0'
