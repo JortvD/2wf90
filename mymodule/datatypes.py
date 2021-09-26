@@ -77,19 +77,29 @@ class LargeInteger(object):
         return self.__getitem__(i)
 
     def __gt__(self, y):
-        # i should prolly explain all this but i'm tired
         if self.is_negative and not y.is_negative:
             return False
         elif y.is_negative and not self.is_negative:
             return True
+        # x and y have same sign
         elif self.__len__() > len(y):
+            # self is greater if it has more digits than y and it's positive
+            # if it's negative, then y is greater
             return self.is_positive
         elif self.__len__() < len(y):
+            # self is greater if it has less digits than y and it's negative
+            # if it's positive, then y is greater
             return self.is_negative
 
+        # x and y have same sign and same length
         for i in range(0, self.__len__()):
+            # check digit by digit, from the leftmost one
+            # if the leftmost digit is greater in self then
+            # self is greater than y only if it's positive
             if self.__getitem__(i) > y.get_digit(i):
                 return self.is_positive
+            # if the leftmost digit is lesser in self then
+            # self is greater than y only if it's negative
             elif self.__getitem__(i) < y.get_digit(i):
                 return self.is_negative
 
@@ -99,16 +109,20 @@ class LargeInteger(object):
         return not self.__ge__(y)
 
     def __eq__(self, y):
+        # self and y not equal if they have opposite sign
         if self.is_negative and not y.is_negative:
             return False
         elif y.is_negative and not self.is_negative:
             return False
+        # not equal if they have different length
         elif self.__len__() != len(y):
             return False
 
+        # same sign and length -> check digit by digit if they match
         for i in range(0, self.__len__()):
             if self.__getitem__(i) != y.get_digit(i):
                 return False
+
         return True
 
     def __ge__(self, y):
