@@ -43,35 +43,40 @@ def add(x, y):
     z.invert_digits()
     return z
 
+
 def subtract(x, y):
     carry = 0
-    flip_carry = False
-    x_1 = copy.deepcopy(x)
-    y_1 = copy.deepcopy(y)
+    flip = False
 
     if x.is_negative and y.is_negative:
+        x_1 = copy.deepcopy(y)
         x_1.make_positive()
+        y_1 = copy.deepcopy(x)
         y_1.make_positive()
-        flip_carry = True
     elif y.is_negative:
         # x - -y = x + y
+        y_1 = copy.deepcopy(y)
         y_1.make_positive()
-        return x_1 + y_1
+        return x + y_1
     elif x.is_negative:
         # add(x, y), flip carry
+        x_1 = copy.deepcopy(x)
         x_1.make_positive()
-        res = x_1 + y_1
+        res = x_1 + y
         res.make_negative()
         return res
+    else:
+        x_1 = copy.deepcopy(x)
+        y_1 = copy.deepcopy(y)
 
     if x_1 < y_1:
-        old_x = x_1
-        x_1 = y_1
-        y_1 = old_x
-        flip_carry = not flip_carry
+        flip = True
+        old_x = copy.deepcopy(x_1)
+        x_1 = copy.deepcopy(y_1)
+        y_1 = copy.deepcopy(old_x)
 
-    m = x.num_digits
-    n = y.num_digits
+    m = x_1.num_digits
+    n = y_1.num_digits
     y_1.prepend_zeroes(m - n)
     z = datatypes.LargeInteger(None, radix=x.radix)
     for i in range(m-1, -1, -1):
@@ -82,12 +87,14 @@ def subtract(x, y):
         else:
             carry = 0
         z.append(z_i)
-
-    if flip_carry:
-        carry ^= 1
     
     if carry == 1:
         z.make_negative()
+
+    if flip:
+        z.flip_sign()
+
     z.invert_digits()
     z.strip_leading_zeroes()
+
     return z
