@@ -1,13 +1,15 @@
 # it is assumed that a and b are positive integers
 # returns a list [d, x, y] such that d = gcd(a, b) = x * a + y * b
+from mymodule import datatypes
+
 
 def euclid(a, b):
-    x_1 = 1
-    x_2 = 0
-    y_1 = 0
-    y_2 = 1
+    x_1 = datatypes.LargeInteger('1')
+    x_2 = datatypes.LargeInteger('0')
+    y_1 = datatypes.LargeInteger('0')
+    y_2 = datatypes.LargeInteger('1')
 
-    while b > 0:
+    while b > datatypes.LargeInteger('0'):
         q = a // b
         r = a - q * b
 
